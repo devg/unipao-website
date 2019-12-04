@@ -20,3 +20,14 @@ registry-build:
 
 registry-push:
 	docker push $(REGISTRY):$(APP_VERSION)
+
+stop-prod:
+	docker stack rm unipao
+
+prod:
+	docker stack deploy --compose-file docker-stack.yml unipao --with-registry-auth
+	clear
+	@echo ""
+	@echo "commands:"
+	@echo "- make stop-prod"
+	@echo ""
