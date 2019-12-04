@@ -1,0 +1,15 @@
+version: "3.7"
+services:
+  web:
+    image: registry.gitlab.com/pardacho/unipao-website
+    networks:
+      - public
+    deploy:
+      labels:
+        - "traefik.frontend.rule=Host:unipao.com,www.unipao.com"
+        - "traefik.port=4000"
+        - "traefik.docker.network=public"
+
+networks:
+  public:
+    external: true
