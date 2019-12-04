@@ -7,7 +7,7 @@ services:
     deploy:
       labels:
         - "traefik.frontend.rule=Host:unipao.com,www.unipao.com"
-        - "traefik.port=4000"
+        - "traefik.port=80"
         - "traefik.docker.network=public"
 
 networks:
